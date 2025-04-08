@@ -1,0 +1,27 @@
+[
+    {
+        "lieu": "Paris",
+        "date": "2025-04-08",
+        "logo": "cesi_logo.webp"
+    },
+    {
+        "lieu": "Strasbourg",
+        "date": "2025-04-09",
+        "logo": "cesi_logo.webp"
+    },
+    {
+        "lieu": "Melun",
+        "date": "2025-04-10",
+        "logo": "cesi_logo.webp"
+    },
+    {
+        "lieu": "La Souterraine",
+        "date": "2025-04-11",
+        "logo": "cesi_logo.webp"
+    },
+    {
+        "lieu": "Angoulême",
+        "date": "2025-04-12",
+        "logo": "cesi_logo.webp"
+    }
+]
