@@ -1,8 +1,8 @@
 <?php
-$dbhost = "xxxx";
-$dbname = "xxxx";
-$dbuser = "xxxx";
-$dbpass = "xxxx";
+$dbhost = "tp2-mariadb";
+$dbname = "promocesi";
+$dbuser = "johnny";
+$dbpass = "s3cr4T";
  
 // Create connection
 $mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
