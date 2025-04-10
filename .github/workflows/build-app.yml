@@ -1,0 +1,7 @@
+name: build-app
+run-name: ${{ github.actor }} fait des trucs
+on: [push]
+jobs:
+  build:
+    steps:
+      -run: Build image
