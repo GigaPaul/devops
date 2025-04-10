@@ -1,0 +1,5 @@
+# Lancer tp2-connect
+docker run --rm --name tp2-connect --network tp2-reseau -d -p 85:80 tp2-connect
+
+# Lancer tp2-mariadb
+docker run --rm --name tp2-mariadb --network tp2-reseau -v ./initdb/:/docker-entrypoint-initdb.d/:ro -e MARIADB_USER=johnny -e MARIADB_PASSWORD=s3cr4T -e MARIADB_DATABASE=promocesi -e MARIADB_ROOT_PASSWORD=sup4rs3cure  mariadb:latest
