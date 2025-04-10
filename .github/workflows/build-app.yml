@@ -7,4 +7,4 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - run: echo "Build image"
+      - run: docker compose build tp2-connect
