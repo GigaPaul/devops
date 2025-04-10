@@ -11,10 +11,13 @@ jobs:
 
       - name: Github Container Registry
         uses: docker/login-action@v3
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -t tp2-connect .
+        run: docker build -t ghcr.io/tp2-connect .
 
       - name: Push Docker image
-        run: docker push tp2-connect
+        run: docker push ghcr.io/tp2-connect
       # - run: docker compose build tp2-connect
