@@ -4,12 +4,15 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    env: 
-      REPOSITORY: ${{ github.repository }}
+    # env: 
+    #   REPOSITORY: ${{ github.repository }}
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
+
+      - name: To lowercase
+        uses: echo "REPOSITORY=$(echo '${{ github.repository }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
 
       # - name: Github Container Registry
       #   uses: docker/login-action@v3
