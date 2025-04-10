@@ -1,0 +1,26 @@
+services:
+  tp2-connect:
+    container_name: tp2-connect
+    build: .
+    ports:
+      - "85:80"
+    networks:
+      - tp2-reseau
+    restart: unless-stopped
+
+  tp2-mariadb:
+    image: mariadb:latest
+    container_name: tp2-mariadb
+    networks:
+      - tp2-reseau
+    volumes: 
+      - ./initdb/:/docker-entrypoint-initdb.d/:ro
+    environment:
+      MARIADB_USER: johnny
+      MARIADB_PASSWORD: s3cr4T
+      MARIADB_DATABASE: promocesi
+      MARIADB_ROOT_PASSWORD: sup4rs3cure
+
+
+networks:
+  tp2-reseau: {}
