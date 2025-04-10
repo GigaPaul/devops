@@ -14,23 +14,11 @@ jobs:
       - name: To lowercase
         run: echo "REPOSITORY=$(echo '${{ github.repository }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
 
-      # - name: Github Container Registry
-      #   uses: docker/login-action@v3
-      #   with:
-      #     registry: ghcr.io
-      #     username: ${{ github.actor }}
-      #     password: ${{ secrets.GITHUB_TOKEN }}
-
-      # - name: Tag
-      #   run: docker tag tp2-connect:v0.1 ghcr.io/$REPOSITORY/tp2-connect:v0.1
-
       - name: Authentification
-        run: echo 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 | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-        # run: docker login ghcr.io -u ${{ github.actor }} --password-stdin
+        run: echo "${{ secrets.TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Build Docker image
         run: docker build -t ghcr.io/$REPOSITORY/tp2-connect:v0.1 .
 
       - name: Push Docker image
         run: docker push ghcr.io/$REPOSITORY/tp2-connect:v0.1
-      # - run: docker compose build tp2-connect
