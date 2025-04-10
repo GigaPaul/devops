@@ -15,7 +15,7 @@ jobs:
         run: echo "REPOSITORY=$(echo '${{ github.repository }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
 
       - name: Authentification
-        run: echo "${{ secrets.TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+        run: echo ${{ vars.TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Build Docker image
         run: docker build -t ghcr.io/$REPOSITORY/tp2-connect:v0.1 .
