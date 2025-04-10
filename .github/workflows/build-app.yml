@@ -7,4 +7,4 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - run: Build image
+      - run: echo "Build image"
