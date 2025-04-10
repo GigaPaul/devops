@@ -17,8 +17,8 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -t ghcr.io/tp2-connect .
+        run: docker build -t ghcr.io/${{ github.repository }}:latest .
 
       - name: Push Docker image
-        run: docker push ghcr.io/tp2-connect
+        run: docker push ghcr.io/${{ github.repository }}:latest
       # - run: docker compose build tp2-connect
