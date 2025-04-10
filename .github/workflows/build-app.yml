@@ -4,6 +4,8 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    env: 
+      REPOSITORY: ${{ github.repository }}
 
     steps:
       - name: Checkout repo
@@ -17,14 +19,14 @@ jobs:
       #     password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Tag
-        run: docker tag tp2-connect:v0.1 ghcr.io/${{ github.repository.lowercase }}/tp2-connect:v0.1
+        run: docker tag tp2-connect:v0.1 ghcr.io/$REPOSITORY/tp2-connect:v0.1
 
       - name: Authentification
         run: docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Build Docker image
-        run: docker build -t ghcr.io/${{ github.repository.lowercase }}/tp2-connect:v0.1 .
+        run: docker build -t ghcr.io/$REPOSITORY/tp2-connect:v0.1 .
 
       - name: Push Docker image
-        run: docker push ghcr.io/${{ github.repository.lowercase }}/tp2-connect:v0.1
+        run: docker push ghcr.io/$REPOSITORY/tp2-connect:v0.1
       # - run: docker compose build tp2-connect
